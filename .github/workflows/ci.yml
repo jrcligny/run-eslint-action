@@ -64,3 +64,5 @@ jobs:
 
       - name: Lint Codebase
         uses: ./
+        with:
+          overrideConfigFile: ./eslint.config.mjs
