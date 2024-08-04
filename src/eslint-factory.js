@@ -27,7 +27,8 @@ module.exports = class EslintFactory
 			try {
 				await this.fs.stat(overrideConfigFile)
 			} catch {
-				throw new Error(`'${overrideConfigFile}' does not exist. Action cannot continue.`)
+				this.actionsCore.error(`Config file '${overrideConfigFile}' not found.`)
+				throw new Error('Action cannot continue.')
 			}
 		}
 

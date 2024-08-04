@@ -7,6 +7,7 @@ describe('eslint-factory', () =>
 	const actionsCoreMocked = {
 		getInput: jest.fn(),
 		info: jest.fn(),
+		error: jest.fn(),
 	}
 
 	const fsMocked = {
@@ -91,8 +92,9 @@ describe('eslint-factory', () =>
 
 		// Act & Assert
 		const instance = instantiate()
-		await expect(instance.create()).rejects.toThrow(`'./path/to/.eslintrc.json' does not exist. Action cannot continue.`)
+		await expect(instance.create()).rejects.toThrow('Action cannot continue.')
 
+		expect(actionsCoreMocked.error).toHaveBeenCalledWith(`Config file './path/to/.eslintrc.json' not found.`)
 		expect(actionsCoreMocked.getInput).toHaveBeenCalledWith('overrideConfigFile')
 		expect(fsMocked.stat).toHaveBeenCalledWith('./path/to/.eslintrc.json')
 	})
