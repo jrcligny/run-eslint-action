@@ -1,4 +1,4 @@
-module.exports = class EslintFactory
+export default class EslintFactory
 {
 	/**
 	 * @param {import('@actions/core')} actionsCore
