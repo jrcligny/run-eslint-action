@@ -54,13 +54,5 @@ jobs:
           node-version-file: .node-version
           cache: npm
 
-      - name: Install Dependencies
-        id: install
-        run: npm ci
-
-      - name: Build Action
-        id: build
-        run: npm run package
-
       - name: Lint Codebase
         uses: ./
