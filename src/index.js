@@ -1,9 +1,9 @@
-import actionsCore from '@actions/core'
-import fs from 'node:fs/promises'
-import eslint from 'eslint'
+const actionsCore = require('@actions/core')
+const fs = require('node:fs/promises')
+const eslint = require('eslint')
 
-import EslintFactory from './eslint-factory'
-import EslintRunner from './eslint-runner'
+const EslintFactory = require('./eslint-factory')
+const EslintRunner = require('./eslint-runner')
 
 const eslintFactoryInstance = new EslintFactory(actionsCore, fs, eslint)
 const eslintRunnerInstance = new EslintRunner(actionsCore, eslintFactoryInstance)

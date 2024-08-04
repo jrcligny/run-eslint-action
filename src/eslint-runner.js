@@ -1,4 +1,4 @@
-export default class EslintRunner
+module.exports = class EslintRunner
 {
 	/**
 	 * @param {import('@actions/core')} actionsCore
