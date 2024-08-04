@@ -64,5 +64,3 @@ jobs:
 
       - name: Lint Codebase
         uses: ./
-        with:
-          overrideConfigFile: ./.github/linters/.eslintrc.yml
