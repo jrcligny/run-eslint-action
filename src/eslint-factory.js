@@ -22,9 +22,13 @@ module.exports = class EslintFactory
 	async create()
 	{
 		const overrideConfigFile = this.actionsCore.getInput('overrideConfigFile') || undefined
-		if (overrideConfigFile && !(await this.fs.stat(overrideConfigFile)))
+		if (overrideConfigFile)
 		{
-			throw new Error(`'${overrideConfigFile}' does not exist. Action cannot continue.`)
+			try {
+				await this.fs.stat(overrideConfigFile)
+			} catch {
+				throw new Error(`'${overrideConfigFile}' does not exist. Action cannot continue.`)
+			}
 		}
 
 		const ESLint = await this.eslint.loadESLint({ useFlatConfig: true })

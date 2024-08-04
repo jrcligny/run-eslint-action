@@ -37,7 +37,7 @@ describe('eslint-factory', () =>
 			return undefined
 		})
 
-		fsMocked.stat.mockResolvedValueOnce(true)
+		fsMocked.stat.mockResolvedValueOnce({})
 
 		const ESLint = jest.fn().mockReturnValue({})
 		eslintMocked.loadESLint.mockResolvedValue(ESLint)
@@ -62,7 +62,7 @@ describe('eslint-factory', () =>
 			return undefined
 		})
 
-		fsMocked.stat.mockResolvedValueOnce(true)
+		fsMocked.stat.mockResolvedValueOnce({})
 
 		const ESLint = jest.fn().mockReturnValue({})
 		eslintMocked.loadESLint.mockResolvedValue(ESLint)
@@ -87,7 +87,7 @@ describe('eslint-factory', () =>
 			return undefined
 		})
 
-		fsMocked.stat.mockResolvedValueOnce(false)
+		fsMocked.stat.mockRejectedValueOnce(new Error(`ENOENT: no such file or directory, stat './path/to/.eslintrc.json'`))
 
 		// Act & Assert
 		const instance = instantiate()
