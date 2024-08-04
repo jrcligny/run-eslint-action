@@ -1,0 +1,11 @@
+{
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/coverage": true,
+		"**/dist": true
+	},
+	"editor.tabSize": 2,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+  "eslint.useFlatConfig": true
+}

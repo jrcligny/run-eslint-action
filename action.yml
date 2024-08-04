@@ -1,0 +1,17 @@
+name: 'run-eslint-action'
+description: 'An action to lint your JavaScript code with ESLint and provide annotations in GitHub Actions'
+author: 'Jean-Rémy Cligny'
+
+inputs:
+  pattern:
+    description: 'The pattern to match the files to lint'
+    required: false
+    default: '**/*.js'
+  overrideConfigFile:
+    description: 'The path to the ESLint configuration file if any'
+    required: false
+    default: ''
+
+runs:
+  using: node20
+  main: dist/index.js
