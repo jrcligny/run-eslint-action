@@ -3,5 +3,6 @@
 		"dbaeumer.vscode-eslint",
 		"github.copilot",
 		"github.vscode-pull-request-github",
+		"github.vscode-github-actions",
 	]
 }
