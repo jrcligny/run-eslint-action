@@ -1,35 +1,44 @@
 # @jrcligny/run-eslint-action
 
-An action to lint your JavaScript code with ESLint and provide annotations in the Pull Request to associate messages with a particular file in your repository.
-A summary of the linted files that contain errors or warnings is also displayed in the GitHub Actions workflow.
+An action to lint your JavaScript code with ESLint (9.8.0) and provide annotations in the Pull Request to associate messages with a particular file in your repository.
+A summary of the linted files that contain errors or warnings is also displayed in the Workflows.
+
+Only [flat configuration files](https://eslint.org/docs/latest/use/configure/migration-guide#start-using-flat-config-files) are supported.
 
 ## Inputs
 
 - `pattern`: Specify the files to lint. This input is optional (default: `**/*.js`).
-- `overrideConfigFile`: Specify the ESLint configuration file. This input is optional (default: none).
+- `overrideConfigFile`: Specify the ESLint configuration file. This input is optional (default: `none`).
+	If not provided, it tries to find the default [configuration file](https://eslint.org/docs/latest/use/configure/configuration-files#configuration-file).
 
-## Contribute
+## Usage
 
-### Setup
+```yaml annotate
+name: Continuous Integration
 
-```bash
-npm install
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  lint-javascript:
+    name: Lint JavaScript Codebase
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+
+      - name: Lint Codebase
+        uses: jrcligny/run-eslint-action@v1
+        with:
+          # Specify the files to lint. This input is optional (default: `**/*.js`)
+          pattern: 'src/**/*.js'
+          # Specify the ESLint configuration file. This input is optional (default: none)
+          overrideConfigFile: src/eslint.config.js
 ```
-
-### Visual Studio Code tasks
-
-- `Run tests`: Run all tests and may generate coverage report
-- `Run Current Spec File`: Run the current spec file
-- `Run Related Spec File`: Run the spec file related to the current source file. The test suite description must match the source filename.
-- `Open Coverage Report`: Open the coverage report in the default browser
-
-### Visual Studio Code debugger
-
-- `Debug Jest Tests`
-
-### NPM scripts
-
-- `test`: Run all tests and generate coverage report
-- `lint`: Lint JavaScript files
-- `package`: Package the project
-- `all`: Run all tests, generate coverage report, lint files, and package the project.

@@ -12,11 +12,6 @@
 	"bugs": {
 		"url": "https://github.com/jrcligny/run-eslint-action/issues"
 	},
-	"keywords": [
-		"GitHub",
-		"Actions",
-		"JavaScript"
-	],
 	"exports": {
 		".": "./dist/index.js"
 	},
