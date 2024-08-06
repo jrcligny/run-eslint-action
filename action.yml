@@ -1,6 +1,9 @@
-name: 'run-eslint-action'
-description: 'An action to lint your JavaScript code with ESLint and provide annotations in GitHub Actions'
+name: 'Run ESlint Action'
+description: 'An action to lint JavaScript files using ESLint (9.8.0) and provide annotations on Pull Request'
 author: 'Jean-Rémy Cligny'
+branding:
+  color: 'blue'
+  icon: 'code'
 
 inputs:
   pattern:
