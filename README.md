@@ -1,6 +1,6 @@
 # @jrcligny/run-eslint-action
 
-An action to lint your JavaScript code with ESLint (9.8.0) and provide annotations in the Pull Request to associate messages with a particular file in your repository.
+An action to lint your JavaScript code with ESLint (9.9.0) and provide annotations in the Pull Request to associate messages with a particular file in your repository.
 A summary of the linted files that contain errors or warnings is also displayed in the Workflows.
 
 Only [flat configuration files](https://eslint.org/docs/latest/use/configure/migration-guide#start-using-flat-config-files) are supported.
